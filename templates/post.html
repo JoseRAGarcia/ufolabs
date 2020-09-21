@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+          <div class="blog-post">
+            <h2 class="blog-post-title">
+              {{ post.title }}
+            </h2>
+            <p class="blog-post-meta">{{ post.created_at | date:'d, M Y' }} by <a href="#">{{ post.author }}</a></p>
+
+            {{ post.content | safe }}
+            <div><a href="{% url 'home' %}">Voltar a tela inicial</a> </div>
+          </div><!-- /.blog-post -->
+
+
+{% endblock %}
