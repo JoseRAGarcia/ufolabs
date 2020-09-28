@@ -17,15 +17,16 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from django.contrib.auth import views as auth_views
 from post import views as post_views
 from user import views as user_views
 
 urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('admin/', admin.site.urls),
-    #path('', views.registro, name='registro'),
     path('', user_views.register, name='registro'),
-    path('login/', post_views.my_login, name='login'),
+    path('login/', auth_views.LoginView.as_view(), name='login'),
+    #path('login/', post_views.my_login, name='login'),
     path('home/', post_views.home, name='home'),
     path('posts/<int:post_id>', post_views.post),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

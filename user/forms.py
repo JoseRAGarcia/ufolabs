@@ -1,6 +1,12 @@
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
 from django import forms
 from .models import My_User
+
+# class MyLogin(AuthenticationForm):
+#     username = forms.CharField(
+#         widget=forms.TextInput(attrs={'id': 'email', 'placeholder': 'Digite seu e-mail'}),
+#     )
 
 class CreateUser(UserCreationForm):
     password1 = forms.CharField(
