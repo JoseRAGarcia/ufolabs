@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+        <div class="blog-post">
+            <a href="{% url 'logout' %}">Logout</a>
+            <h2 class="blog-post-title">
+                Welcome, {{ users.first_name }}
+            </h2>
+        </div>
+{% endblock %}

@@ -8,14 +8,24 @@
 	<title>Login</title>
 </head>
 <body>
-
-<h2>Login</h2>
-
-<form method="post" id="login-container">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-</form>
+	<div id="login-container">
+	<h1>Login</h1>
+		<form method="post">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<a href="#" id="forgot-pass">Esqueceu a senha?</a>
+			<input type="submit" value="Login">
+		</form>
+			<div id="social-container">
+				<p>Ou entre pelas suas redes sociais</p>
+				<i class="fa fa-facebook"></i>
+					<i class="fa fa-linkedin"></i>
+			</div>
+			<div id="register-container">
+				<p>Ainda não tem uma conta</p>
+				<a href="{% url 'registro' %}">Registrar</a>
+			</div>
+	</div>
 
 <!--	<div id="login-container">-->
 <!--		<h1>Login</h1>-->

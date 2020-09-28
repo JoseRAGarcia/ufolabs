@@ -26,7 +26,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', user_views.register, name='registro'),
     path('login/', auth_views.LoginView.as_view(), name='login'),
-    #path('login/', post_views.my_login, name='login'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('accounts/profile/', user_views.profile, name='profile'),
     path('home/', post_views.home, name='home'),
     path('posts/<int:post_id>', post_views.post),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -9,7 +9,6 @@ from .models import Post
 # def my_login(request):
 #     return render(request, 'login.html')
 
-@login_required
 def home(request):
     posts = Post.objects.all()
     return render(request, 'home.html', {'posts': posts})
