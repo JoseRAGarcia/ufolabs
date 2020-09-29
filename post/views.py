@@ -11,7 +11,8 @@ from .models import Post
 
 def home(request):
     posts = Post.objects.all()
-    return render(request, 'home.html', {'posts': posts})
+    user = request.user
+    return render(request, 'home.html', {'posts': posts, 'user': user})
 
 @login_required
 def post(request, post_id):

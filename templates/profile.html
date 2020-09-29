@@ -1,10 +1,10 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-        <div class="blog-post">
-            <a href="{% url 'logout' %}">Logout</a>
-            <h2 class="blog-post-title">
-                Welcome, {{ users.first_name }}
-            </h2>
-        </div>
+<!--        <div class="blog-post">-->
+<!--            <h2 class="blog-post-title">-->
+<!--                Olá, {{ user.first_name }} {{ user.last_name }}!-->
+<!--            </h2>-->
+<!--        </div>-->
+<div><img id="profile-photo" src="{{ user.photo }}"><h2>{{ user.first_name }} {{ user.last_name }}</h2></div>
 {% endblock %}

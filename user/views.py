@@ -16,5 +16,5 @@ def register(request):
     return render(request, 'registro.html', {'form':form})
 
 def profile(request):
-    users = request.user
-    return render(request, 'profile.html', {'users':users})
+    user = request.user
+    return render(request, 'profile.html', {'user':user})
