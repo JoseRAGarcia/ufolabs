@@ -30,4 +30,5 @@ urlpatterns = [
     path('accounts/profile/', user_views.profile, name='profile'),
     path('home/', post_views.home, name='home'),
     path('posts/<int:post_id>', post_views.post),
+    path('new_post/', post_views.new_post, name='new_post'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
