@@ -2,13 +2,17 @@
 
 {% block content %}
 <div>
-    <img id="profile-photo"
-         {% if user.my_user.photo.url != blank %}
-            src="{{ user.my_user.photo.url }}" width="200" height="200">
-        {% else %}
-            src="/media/user_photos/profile.png" width="200" height="200">
-        {% endif %}
-    <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+    <figure id="profile-image" class="profile-image">
+        <img id="profile-photo"
+             {% if user.my_user.photo.url != blank %}
+                src="{{ user.my_user.photo.url }}">
+            {% else %}
+                src="/media/user_photos/profile.png" width="200" height="200">
+            {% endif %}
+        <figcaption class="hide"><a href="#">Alterar Imagem</a></figcaption>
+        <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+    </figure>
+
 </div>
 <div>
     <nav>
@@ -21,6 +25,7 @@
 <h1>Criar Nova Postagem</h1>
     {% csrf_token %}
     {{ form.as_p }}
+    <p>{{ user.id }}</p>
     <input type="submit" value="Postar">
 </form>
 

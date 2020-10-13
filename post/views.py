@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post
 from .forms import CreatePost
+from django.views.generic.edit import UpdateView
 
 # Create your views here.
 
@@ -26,3 +27,14 @@ def new_post(request):
     else:
         form = CreatePost()
     return render(request, 'postCreation.html', {'form':form})
+
+# class MyUpdateView(UpdateView):
+#
+#     model = Post
+#     form_class = CreatePost
+#
+#     # Sending user object to the form, to verify which fields to display/remove (depending on group)
+#     def get_form_kwargs(self):
+#         kwargs = super(MyUpdateView, self).get_form_kwargs()
+#         kwargs.update({'user': self.request.user})
+#         return kwargs

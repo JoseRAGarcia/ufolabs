@@ -10,9 +10,33 @@
   font-size: 2.25rem;
 }
 
-#profile-photo{
-    width: 30px;
-    height: 60px;
+#profile-image{
+  display: inline-block;
+  position: relative;
+}
+#profile-image a{
+    text-decoration: none;
+    color: white;
+
+}
+
+.hide {
+  position: absolute;
+  text-align: center;
+  top: 100px;
+  right: 35px;
+  font-size: 20px;
+  text-shadow: 0px 0px 5px black;
+  opacity: 0;
+}
+.profile-image .hide:hover{
+    opacity: 1;
+}
+
+#profile-image img{
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
 }
 
 .blog-header-logo:hover {
