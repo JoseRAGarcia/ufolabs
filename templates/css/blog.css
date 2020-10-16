@@ -3,11 +3,28 @@
 .blog-header {
   line-height: 1;
   border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 0.5%;
 }
 
 .blog-header-logo {
   font-family: "Playfair Display", Georgia, "Times New Roman", serif;
   font-size: 2.25rem;
+}
+
+.my-container{
+    margin: 1%;
+}
+
+.home-container{
+    margin-left: 12%;
+    width: 90%;
+}
+
+.post-container-profile{
+    width: 67%;
+    float: right;
+    padding: 1%;
+    border: 1px solid #e5e5e5;
 }
 
 #profile-image{
@@ -38,8 +55,35 @@
     border-radius: 100%;
 }
 
-.post-form{
+.menu-perfil{
+    float: left;
+    background-color: #F8F9FA;
+    padding: 1%;
+    width: 250px;
+    text-align: center;
+    border: 1px solid #e5e5e5;
+    -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+	-moz-box-shadow:    9px 7px 5px rgba(50, 50, 50, 0.77);
+	box-shadow:         9px 7px 5px rgba(50, 50, 50, 0.77);
+}
 
+.menu-perfil h2{
+
+}
+
+.menu-perfil li{
+    text-align: left;
+    list-style: none;
+}
+
+.menu-perfil a{
+    text-decoration: none;
+    color: black;
+}
+
+.post-form{
+    clear: both;
+    padding-top: 5%;
 }
 
 .blog-header-logo:hover {

@@ -6,25 +6,49 @@
 <!--                Olá, {{ user.first_name }} {{ user.last_name }}!-->
 <!--            </h2>-->
 <!--        </div>-->
-<div>
-    <figure id="profile-image" class="profile-image">
-        <img id="profile-photo"
-             {% if user.my_user.photo.url != blank %}
-                src="{{ user.my_user.photo.url }}">
-            {% else %}
-                src="/media/user_photos/profile.png">
-            {% endif %}
-        <figcaption class="hide"><a href="{% url 'update_user' user.id %}">Alterar Imagem</a></figcaption>
-        <h2>{{ user.first_name }} {{ user.last_name }}</h2>
-    </figure>
+<section class="menu-perfil">
+    <div>
+        <figure id="profile-image" class="profile-image">
+            <img id="profile-photo"
+                 {% if user.my_user.photo.url != blank %}
+                    src="{{ user.my_user.photo.url }}">
+                {% else %}
+                    src="/media/user_photos/profile.png">
+                {% endif %}
+            <figcaption class="hide"><a href="{% url 'update_user' user.id %}">Alterar Imagem</a></figcaption>
+            <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+        </figure>
 
-</div>
-<div>
-    <nav>
-        <ul>
-            <li><a href="{% url 'update_user' user.id %}">Alterar Dados Cadastrais</a></li>
-            <li><a href="{% url 'new_post' %}">Nova postagem</a></li>
-        </ul>
-    </nav>
-</div>
+    </div>
+    <div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'update_user' user.id %}">Alterar dados cadastrais</a></li>
+                <li><a href="{% url 'new_post' %}">Nova postagem</a></li>
+            </ul>
+        </nav>
+    </div>
+</section>
+<section class="post-container-profile">
+          <h3 class="pb-3 mb-4 font-italic border-bottom">
+            De algum lugar no Espaço
+          </h3>
+
+          {% for post in posts %}
+          <div class="blog-post">
+            <h2 class="blog-post-title">
+              <a href="/posts/{{ post.pk }}">{{ post.title }}</a>
+            </h2>
+            <p class="blog-post-meta">{{ post.created_at | date:'d, M Y' }} by <a href="#">{{ post.author }}</a></p>
+
+            {{ post.summary | safe }}
+            <hr>
+          </div><!-- /.blog-post -->
+          {% endfor %}
+
+          <nav class="blog-pagination">
+            <a class="btn btn-outline-primary" href="#">Older</a>
+            <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+          </nav>
+    </section>
 {% endblock %}
