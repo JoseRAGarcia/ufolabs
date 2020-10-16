@@ -12,9 +12,9 @@
              {% if user.my_user.photo.url != blank %}
                 src="{{ user.my_user.photo.url }}">
             {% else %}
-                src="/media/user_photos/profile.png" width="200" height="200">
+                src="/media/user_photos/profile.png">
             {% endif %}
-        <figcaption class="hide"><a href="#">Alterar Imagem</a></figcaption>
+        <figcaption class="hide"><a href="{% url 'update_user' user.id %}">Alterar Imagem</a></figcaption>
         <h2>{{ user.first_name }} {{ user.last_name }}</h2>
     </figure>
 
@@ -22,6 +22,7 @@
 <div>
     <nav>
         <ul>
+            <li><a href="{% url 'update_user' user.id %}">Alterar Dados Cadastrais</a></li>
             <li><a href="{% url 'new_post' %}">Nova postagem</a></li>
         </ul>
     </nav>

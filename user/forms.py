@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django import forms
 from .models import My_User
 
@@ -18,3 +18,8 @@ class CreateUser(UserCreationForm):
             'username': forms.TextInput(attrs={'class': 'controls', 'placeholder': 'Digite seu apelido'}),
             'email': forms.TextInput(attrs={'class': 'controls', 'placeholder': 'Digite seu email'}),
         }
+
+class UpdateUser(UserChangeForm):
+    class Meta:
+        model = My_User
+        fields = ['photo','first_name', 'last_name', 'email', 'bio']
