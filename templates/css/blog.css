@@ -1,16 +1,26 @@
 /* stylelint-disable selector-list-comma-newline-after */
 
+body{
+    background-color: #F0F2F5;
+}
 .blog-header {
   line-height: 1;
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 0.5%;
+  background-color: black;
 }
 
 .blog-header-logo {
   font-family: "Playfair Display", Georgia, "Times New Roman", serif;
   font-size: 2.25rem;
 }
-
+.form-inline{
+    padding-left: 10%;
+}
+.btn-login{
+    position: absolute;
+    right: 0;
+}
 .my-container{
     margin: 1%;
 }
@@ -21,10 +31,16 @@
 }
 
 .post-container-profile{
+    background-color: #fff;
     width: 67%;
     float: right;
     padding: 1%;
+    border-radius: 10px;
     border: 1px solid #e5e5e5;
+}
+
+.post-container-profile a{
+    color: black;
 }
 
 #profile-image{
@@ -61,6 +77,7 @@
     padding: 1%;
     width: 250px;
     text-align: center;
+    border-radius: 10px;
     border: 1px solid #e5e5e5;
     -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
 	-moz-box-shadow:    9px 7px 5px rgba(50, 50, 50, 0.77);
@@ -71,9 +88,19 @@
 
 }
 
-.menu-perfil li{
+.menu-perfil ul{
+    padding-left: 0px;
     text-align: left;
     list-style: none;
+}
+
+.menu-perfil li{
+    padding-left: 15%;
+}
+
+.menu-perfil li:hover{
+
+    background-color: #E3E5E8;
 }
 
 .menu-perfil a{
@@ -84,6 +111,14 @@
 .post-form{
     clear: both;
     padding-top: 5%;
+}
+
+.post-form .helptext{
+    display: none;
+}
+
+.post-form #id_password{
+    display: none;
 }
 
 .blog-header-logo:hover {

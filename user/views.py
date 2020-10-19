@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import My_User
+from post.models import Post
 from .forms import CreateUser, UpdateUser
 # Create your views here.
 
@@ -18,8 +19,9 @@ def register(request):
 
 @login_required
 def profile(request):
+    posts = Post.objects.all()
     user = request.user
-    return render(request, 'profile.html', {'user':user})
+    return render(request, 'profile.html', {'user':user, 'posts': posts})
 
 @login_required
 def update_user(request, id):
