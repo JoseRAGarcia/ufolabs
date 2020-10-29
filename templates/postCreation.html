@@ -8,7 +8,7 @@
                  {% if user.my_user.photo.url != blank %}
                     src="{{ user.my_user.photo.url }}">
                 {% else %}
-                    src="/media/user_photos/profile.png">
+                    src="/static/img/profile.png">
                 {% endif %}
             <figcaption class="hide"><a href="{% url 'update_user' user.id %}">Alterar Imagem</a></figcaption>
             <h2>{{ user.first_name }} {{ user.last_name }}</h2>
