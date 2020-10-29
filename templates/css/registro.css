@@ -10,3 +10,10 @@ img{
     float: left;
     margin-left: 10%;
 }
+
+.link{
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 40px;
+}
