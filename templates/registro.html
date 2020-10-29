@@ -1,33 +1,93 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="/static/css/registro.css">
-  <title>Formulário de Registro</title>
+  <link rel="icon" href="/static/img/ovni.jpg" />
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="/static/css/registro.css">
+	<title>UFOLabs - Registro</title>
 </head>
 <body>
-<form class="form-register" action="/" method='POST'>
-  <h4>Formulário de Registro</h4>
-  {% csrf_token %}
-  {{ form.as_p }}
-  <p class="link">Estou de acordo com <a href="#">Termos e Condições</a></p>
-  <input class="botons" type="submit" value="Registrar">
-  <p class="link"><a href="{% url 'login' %}">Já tem uma conta?</a></p>
-  <p class="link"><a href="{% url 'home' %}">Entrar sem login</a></p>
+<img src="/static/img/ufo_animation.gif" height="200" width="200">
+<center><span class="form-group col-lg-6">
+<div class="container-md col-lg-6">
+<form action="/" method='POST'>
+	{% csrf_token %}
+  	{{ form.as_p }}
+  <p><label class="mr-sm-2" for="inlineFormCustomSelect">Genero</label></p>
+  <p><select class="custom-select mr-sm-2 col-lg-4" id="inlineFormCustomSelect"></p>
+     <option value="1">Masculino</option>
+     <option value="2">Feminino</option>
+    <!-- <option value="3">Outros</option> Mudar futuramente (evitar processo ridiculos de malucos da internet)--->
+  </select>
+
+<p><label class="my-1 mr-2" for="inlineFormCustomSelectPref">Mês de Nascimento</label></p>
+<p><select class="custom-select my-1 mr-sm-2 col-lg-4" id="inlineFormCustomSelectPref"></p>
+    <option value="1">Janeiro</option>
+    <option value="2">Fevereiro</option>
+    <option value="3">Março</option>
+    <option value="4">Abril</option>
+    <option value="5">Maio</option>
+    <option value="6">Junho</option>
+    <option value="7">Julho</option>
+    <option value="8">Agosto</option>
+    <option value="9">Setembro</option>
+    <option value="10">Outubro</option>
+    <option value="11">Novembro</option>
+    <option value="12">Dezembro</option>
+</select>
+
+<br>
+<br>
+
+<p><label class="my-1 mr-2" for="inlineFormCustomSelectPref ">Data de nascimento</label></p>
+<p><select class="custom-select my-1 mr-sm-2 col-lg-4" id="inlineFormCustomSelectPref"></p>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+    <option value="24">24</option>
+    <option value="25">25</option>
+    <option value="26">26</option>
+    <option value="27">27</option>
+    <option value="28">28</option>
+    <option value="29">29</option>
+    <option value="30">30</option>
+    <option value="31">31</option>
+</select>
+
+
+<p><button type="submit" class="btn btn-outline-secondary">Cadastrar-se</button></p></center>
+
 </form>
-<!--  <section class="form-register">-->
-<!--    <h4>Formulário de Registro</h4>-->
-<!--    <input class="controls" type="text" name="nomes" id="nomes" placeholder="Digite seu nome">-->
-<!--    <input class="controls" type="text" name="sobrenomes" id="sobrenomes" placeholder="Digite seu sobrenome">-->
-<!--    <input class="controls" type="text" name="apelidos" id="apelidos" placeholder="Digite seu apelido">-->
-<!--    <input class="controls" type="email" name="correio" id="correio" placeholder="Digite seu e-mail">-->
-<!--    <input class="controls" type="password" name="correio" id="correio" placeholder="Digite sua senha">-->
-<!--    <p>Estou de acordo com <a href="#">Termos e Condições</a></p>-->
-<!--    <input class="botons" type="submit" value="Registrar">-->
-<!--    <p><a href="{% url 'login' %}">Já tem uma conta?</a></p>-->
-<!--  </section>-->
+</span>
+</div>
+
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://mdbootstrap.com/"> UFO LABS</a>
+  </div>
+
+</div>
+</span>
 
 </body>
 </html>

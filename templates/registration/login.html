@@ -1,52 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
+	<link rel="icon" href="/static/img/ovni.jpg" />
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="/static/css/login.css">
-	<title>Login</title>
+	<title>UFOLabs - Login</title>
 </head>
 <body>
-	<div id="login-container">
-	<h1>Login</h1>
-		<form method="post">
-			{% csrf_token %}
-			{{ form.as_p }}
-			<a href="#" id="forgot-pass">Esqueceu a senha?</a>
-			<input type="submit" value="Login">
-		</form>
-			<div id="social-container">
-				<p>Ou entre pelas suas redes sociais</p>
-				<i class="fa fa-facebook"></i>
-					<i class="fa fa-linkedin"></i>
-			</div>
-			<div id="register-container">
-				<p>Ainda não tem uma conta</p>
-				<a href="{% url 'registro' %}">Registrar</a>
-			</div>
-	</div>
 
-<!--	<div id="login-container">-->
-<!--		<h1>Login</h1>-->
-<!--		<form action="/home/" method="post">-->
-<!--			{% csrf_token %}-->
-<!--			<label for="email">E-mail</label>-->
-<!--			<input type="email" name="email" id="email" placeholder="Digite seu e-mail" autocomplete="off">-->
-<!--			<label for="password">Senha</label>-->
-<!--			<input type="password" name="password" id="password" placeholder="Digite a sua senha">-->
-<!--			<a href="#" id="forgot-pass">Esqueceu a senha?</a>-->
-<!--				<input type="submit" value="Login">-->
-<!--		</form>-->
-<!--		<div id="social-container">-->
-<!--			<p>Ou entre pelas suas redes sociais</p>-->
-<!--			<i class="fa fa-facebook"></i>-->
-<!--				<i class="fa fa-linkedin"></i>			-->
-<!--		</div>-->
-<!--		<div id="register-container">-->
-<!--			<p>Ainda não tem uma conta</p>-->
-<!--			<a href="{% url 'registro' %}">Registrar</a>-->
-<!--		</div>-->
-<!--	</div>-->
+<span class="border border-light" style="border-radius: 10px solid; margin:10px;"></span>
+	<center>
+		<div id="login-container" class="container" padding="16">
+			<form method="post">				
+				<br>
+				<h5> UFO LABS </h5>
+			  <div class="form-group col-lg-6" >
+			  	{% csrf_token %}
+				{{ form.as_p }}
+			  </div>
+		 	 <div class="form-check">
+		   		 <small id="emailHelp" class="form-text text-muted">Nunca compartilharemos seu e-mail com mais ninguém.</small></p>
+		 	 </div>
+		  		<button type="submit" class="btn btn-outline-secondary">Entrar</button>
+		  		 <p left="10"><a href="#">Esqueceu a senha?</a>
+		  		 <p left="10"><a href="{% url 'registro' %}">Criar uma conta.</a>
+			</form>
+		</div>
+	</center>
+
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://mdbootstrap.com/"> UFO LABS</a>
+  </div>
+
 </body>
 </html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/static/css/registro.css">
+  <title>Formulário de Registro</title>
+</head>
+<body>
+<form class="form-register" action="/" method='POST'>
+  <h4>Formulário de Registro</h4>
+  {% csrf_token %}
+  {{ form.as_p }}
+  <p class="link">Estou de acordo com <a href="#">Termos e Condições</a></p>
+  <input class="botons" type="submit" value="Registrar">
+  <p class="link"><a href="{% url 'login' %}">Já tem uma conta?</a></p>
+  <p class="link"><a href="{% url 'home' %}">Entrar sem login</a></p>
+</form>
+<!--  <section class="form-register">-->
+<!--    <h4>Formulário de Registro</h4>-->
+<!--    <input class="controls" type="text" name="nomes" id="nomes" placeholder="Digite seu nome">-->
+<!--    <input class="controls" type="text" name="sobrenomes" id="sobrenomes" placeholder="Digite seu sobrenome">-->
+<!--    <input class="controls" type="text" name="apelidos" id="apelidos" placeholder="Digite seu apelido">-->
+<!--    <input class="controls" type="email" name="correio" id="correio" placeholder="Digite seu e-mail">-->
+<!--    <input class="controls" type="password" name="correio" id="correio" placeholder="Digite sua senha">-->
+<!--    <p>Estou de acordo com <a href="#">Termos e Condições</a></p>-->
+<!--    <input class="botons" type="submit" value="Registrar">-->
+<!--    <p><a href="{% url 'login' %}">Já tem uma conta?</a></p>-->
+<!--  </section>-->
+
+</body>
+</html>

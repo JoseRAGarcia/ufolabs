@@ -1,13 +1,12 @@
 /* stylelint-disable selector-list-comma-newline-after */
 
 body{
-    background-color: #F0F2F5;
+    background-color: white;
 }
 .blog-header {
   line-height: 1;
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 0.5%;
-  background-color: black;
 }
 
 .blog-header-logo {
@@ -31,16 +30,19 @@ body{
 }
 
 .post-container-profile{
-    background-color: #fff;
+    background-color: white;
     width: 67%;
+    height: 50%;
     float: right;
-    padding: 1%;
-    border-radius: 10px;
-    border: 1px solid #e5e5e5;
+    overflow: auto;
 }
 
-.post-container-profile a{
-    color: black;
+.blog-post{
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 #profile-image{
