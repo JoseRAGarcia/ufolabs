@@ -16,8 +16,8 @@ class CreatePost(ModelForm):
         model = Post
         fields = ['title', 'summary', 'content', 'author']
 
-        widgets = {
-            'author': forms.TextInput(attrs={'value': 36}),
-        }
+        # widgets = {
+        #     'author': forms.TextInput(attrs={'value': 36}),
+        # }
 
 
