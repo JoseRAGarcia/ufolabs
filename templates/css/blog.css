@@ -148,8 +148,19 @@ h1, h2, h3, h4, h5, h6 {
     .post-container-profile{
     margin-top: 2%;
     float: left;
+    width: 100%;
   }
+    .menu-perfil{
+        width: 100%;
+    }
 
+    .menu-perfil ul{
+        text-align: center;
+    }
+
+    .menu-perfil li{
+        padding-left:0;
+    }
 }
 
 .nav-scroller {
