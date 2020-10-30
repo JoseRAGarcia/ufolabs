@@ -144,6 +144,14 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+@media (max-width: 1191px){
+    .post-container-profile{
+    margin-top: 2%;
+    float: left;
+  }
+
+}
+
 .nav-scroller {
   position: relative;
   z-index: 2;
@@ -163,7 +171,7 @@ h1, h2, h3, h4, h5, h6 {
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
 }
-
+5
 .nav-scroller .nav-link {
   padding-top: .75rem;
   padding-bottom: .75rem;
