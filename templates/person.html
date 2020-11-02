@@ -15,6 +15,7 @@
         </figure>
 
     </div>
+    {% if request.user.id != user.id %}
     <div>
         <nav>
             <ul>
@@ -23,12 +24,16 @@
             </ul>
         </nav>
     </div>
+    {% endif %}
 </section>
     <section class="post-container-profile bio">
           <h3 class="pb-3 mb-4 font-italic border-bottom">
             Quem sou eu
           </h3>
         {{ user.bio | safe }}
+        {% if request.user.id == user.id %}
+            <a href="{% url 'update_user' request.user.id %}">Editar Bio</a>
+        {% endif %}
     </section>
     <section class="post-container-profile">
           <h3 class="pb-3 mb-4 font-italic border-bottom">
