@@ -19,7 +19,7 @@ def post(request, post_id):
 @login_required
 def new_post(request):
     if request.method == 'POST':
-        form = CreatePost(request.POST or None, request.FILES or None)
+        form = CreatePost(request.POST)
 
         if form.is_valid():
             form.save()
