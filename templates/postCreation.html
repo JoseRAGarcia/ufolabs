@@ -23,7 +23,7 @@
         </nav>
     </div>
 </section>
-<form method='POST' class="post-form">
+<form method='POST' class="post-form" enctype="multipart/form-data">
 <h1>Criar Nova Postagem</h1>
     {% csrf_token %}
     {{ form.media }}

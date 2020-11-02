@@ -10,11 +10,10 @@ class CreatePost(ModelForm):
     #     self.user = kwargs.pop('user')
     #     super(CreatePost, self).__init__(*args, **kwargs)
 
-
     class Meta:
 
         model = Post
-        fields = ['title', 'summary', 'content', 'author']
+        fields = ['title', 'photo', 'content', 'author']
 
         # widgets = {
         #     'author': forms.TextInput(attrs={'value': 36}),
