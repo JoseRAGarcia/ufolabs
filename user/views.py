@@ -19,9 +19,17 @@ def register(request):
 
 @login_required
 def profile(request):
-    posts = Post.objects.all()
     user = request.user
+    posts = Post.objects.all()
     return render(request, 'profile.html', {'user':user, 'posts': posts})
+
+@login_required
+def person(request, id):
+    posts = Post.objects.all()
+    user_posts = Post.objects.filter(author=id).order_by('-created_at')
+    user = get_object_or_404(My_User, pk=id)
+    users = My_User.objects.all()
+    return render(request, 'person.html', {'user': user, 'posts': posts, 'user_posts': user_posts, 'users': users})
 
 @login_required
 def update_user(request, id):

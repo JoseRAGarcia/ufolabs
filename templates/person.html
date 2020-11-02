@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<section class="menu-perfil">
+    <div>
+        <figure id="profile-image" class="profile-image">
+            <img id="profile-photo"
+                 {% if user.my_user.photo.url != blank %}
+                    src="{{ user.my_user.photo.url }}">
+                {% else %}
+                    src="/static/img/profile.png">
+                {% endif %}
+            <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+        </figure>
+
+    </div>
+    <div>
+        <nav>
+            <ul>
+                <li><a href="#">Adicionar aos amigos</a></li>
+                <li><a href="#">Enviar mensagem</a></li>
+            </ul>
+        </nav>
+    </div>
+</section>
+    <section class="post-container-profile bio">
+          <h3 class="pb-3 mb-4 font-italic border-bottom">
+            Quem sou eu
+          </h3>
+        {{ user.bio | safe }}
+    </section>
+    <section class="post-container-profile">
+          <h3 class="pb-3 mb-4 font-italic border-bottom">
+            Minhas Postagens
+          </h3>
+          </h3>
+
+          {% for post in user_posts %}
+          <div class="blog-post">
+            <h2 class="blog-post-title">
+              {{ post.title }}
+            </h2>
+            <p class="blog-post-meta">{{ post.created_at | date:'d, M Y' }} by <a href="#">{{ post.author }}</a></p>
+
+              <p>{{ post.content | safe | slice:'0:500' }}... <a href="/posts/{{ post.pk }}">Ler mais</a></p>
+          </div><!-- /.blog-post -->
+          {% endfor %}
+
+          <nav class="blog-pagination">
+            <a class="btn btn-outline-primary" href="#">Older</a>
+            <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+          </nav>
+    </section>
+{% endblock %}

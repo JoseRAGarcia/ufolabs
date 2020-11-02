@@ -32,4 +32,5 @@ urlpatterns = [
     path('posts/<int:post_id>', post_views.post),
     path('new_post/', post_views.new_post, name='new_post'),
     path('update_user/<int:id>/', user_views.update_user, name='update_user'),
+    path('person/<int:id>/', user_views.person, name='person')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -65,6 +65,16 @@ body{
     width:70%;
 }
 
+.bio{
+    background-color: #F8F9FA;
+    height: auto;
+    margin-bottom: 20px;
+    border: 1px solid #e5e5e5;
+    -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+	-moz-box-shadow:    9px 7px 5px rgba(50, 50, 50, 0.77);
+	box-shadow:         9px 7px 5px rgba(50, 50, 50, 0.77);
+}
+
 #profile-image{
   display: inline-block;
   position: relative;
