@@ -4,8 +4,62 @@ body{
     background-color: white;
 }
 
-.container{
+.resp-menu{
+    display: none;
+    text-align: center;
+}
+#ham:checked ~ .resp-menu{
+    display: block;
+}
 
+.resp-menu li{
+    border-bottom: 1px solid #e5e5e5;
+    color: black;
+}
+
+.resp-menu a{
+    color: black;
+}
+
+.resp-menu li:hover{
+    background-color: #F8F9FA;
+}
+
+#resp-form{
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#resp-form input{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#resp-search{
+    margin-right: 0;
+    width: 40%;
+}
+
+#ham{
+    display: none;
+}
+
+#ham-label{
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-image: url('../img/hamburguer.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 46px;
+    height: 32px;
+    cursor: pointer;
+    z-index: 1;
+    margin: 2%;
 }
 
 .blog-header {
@@ -169,6 +223,15 @@ h1, h2, h3, h4, h5, h6 {
   .display-4 {
     font-size: 3rem;
   }
+}
+
+@media (max-width: 991px){
+    #ham-label{
+        display: block;
+    }
+    #ham:checked ~ .resp-menu{
+        display: block;
+    }
 }
 
 @media (max-width: 767px){
