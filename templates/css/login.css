@@ -7,3 +7,49 @@
     display:block;width:100%;height:calc(1.5em + .75rem + 2px);padding:.375rem .75rem;font-size:1rem;font-weight:400;line-height:1.5;color:#495057;background-color:#fff;background-clip:padding-box;border:1px solid #ced4da;border-radius:.25rem;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out
 }
 
+@media (max-width: 991px){
+    
+    #bloco{
+        font-size: 200%;
+        border: 1px solid #000;
+        position: absolute;        
+        top: 50%;
+        left: 50%;
+        height: auto;
+        width: 90%;
+        transform: translate(-50%, -50%);
+        float: left;
+        align-content: center;
+
+    }
+
+    h5{
+        font-size: 200%;
+    }
+
+    #id_username{
+        font-size: 200%;
+    }
+    label{
+        margin-top: 10%;
+        font-size: 150%;
+    }
+    #id_password{
+        font-size: 200%;
+    }
+    .btn{
+        margin-top: 10%;
+        margin-bottom: 5%;
+        width: 95%;
+        font-size: 110%;
+    }
+    .footer-copyright{
+        /* display: block;
+        clear: both;
+        font-size: 200%;
+        position: absolute;
+        bottom: 2%;
+        left: 50%;
+        transform: translateX(-50%); */
+    }
+}

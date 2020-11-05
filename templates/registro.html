@@ -12,6 +12,8 @@
 <center><span class="form-group col-lg-6">
 <div class="container-md col-lg-6">
 <form action="/" method='POST'>
+  <br>
+				<h5> UFO LABS </h5>
 	{% csrf_token %}
   	{{ form.as_p }}
 <!--  <p><label class="mr-sm-2" for="inlineFormCustomSelect">Genero</label></p>-->
@@ -76,7 +78,8 @@
 <!--</select>-->
 
 
-<p><button type="submit" class="btn btn-outline-secondary">Cadastrar-se</button></p></center>
+<p><button type="submit" class="btn btn-outline-secondary">Cadastrar-se</button></p>
+</center>
 <div>
     <p class="link"><a href="{% url 'login' %}">Já tem uma conta?</a></p>
     <p class="link"><a href="{% url 'home' %}">Entrar sem login</a></p>
