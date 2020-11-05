@@ -84,7 +84,17 @@
 	<label for="ham" id="ham-label"></label>
 
     <div class="resp-menu">
+
             <form class="form-inline" id="resp-form">
+                <a class="btn btn-outline-secondary" id="resp-login"
+               	{% if user.is_authenticated %}
+                href="{% url 'logout' %}">
+                Logout
+              	{% else %}
+                href="{% url 'login' %}">
+                Login
+              {% endif %}
+            </a>
                 <input id="resp-search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search"></input>
             </form>

@@ -37,10 +37,17 @@ body{
     transform: translateX(-50%);
 }
 
+#resp-login{
+    position: absolute;
+    margin-left: 1%;
+}
+
 #resp-search{
     margin-right: 0;
     width: 40%;
 }
+
+
 
 #ham{
     display: none;
