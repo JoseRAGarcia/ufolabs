@@ -16,7 +16,7 @@ class CreatePost(ModelForm):
         fields = ['title', 'photo', 'content', 'author']
 
         # widgets = {
-        #     'author': forms.TextInput(attrs={'value': 36}),
+        #     'photo': forms.ImageField(attrs={'class': 'btn-primary'}),
         # }
 
 
