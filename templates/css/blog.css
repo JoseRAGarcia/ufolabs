@@ -125,6 +125,10 @@ body{
 .post-image{
     width:70%;
 }
+.btn-login{
+    position: absolute;
+    right: 2%;
+}
 
 .bio{
     background-color: #F8F9FA;
