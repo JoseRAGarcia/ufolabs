@@ -7,7 +7,7 @@
         <figure id="profile-image" class="profile-image">
             <img id="profile-photo"
                  {% if user.my_user.photo.url != blank %}
-                    src="{{ user.my_user.photo.url }}">
+                    style="background-image: url('{{ user.my_user.photo.url }}')">
                 {% else %}
                     src="/static/img/profile.png">
                 {% endif %}
