@@ -149,6 +149,12 @@ body{
     color: white;
 }
 
+#profile-photo{
+    background: transparent no-repeat center;
+    background-size: cover;
+    background-size: cover;
+}
+
 .hide {
   position: absolute;
   text-align: center;
