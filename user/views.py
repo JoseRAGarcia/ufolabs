@@ -20,7 +20,7 @@ def register(request):
 @login_required
 def profile(request):
     user = request.user
-    posts = Post.objects.all()
+    posts = Post.objects.all().order_by('-created_at')
     return render(request, 'profile.html', {'user':user, 'posts': posts})
 
 @login_required

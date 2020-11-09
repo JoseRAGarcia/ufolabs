@@ -7,7 +7,7 @@ from django.views.generic.edit import UpdateView
 # Create your views here.
 
 def home(request):
-    posts = Post.objects.all()
+    posts = Post.objects.all().order_by('-created_at')
     user = request.user
     return render(request, 'home.html', {'posts': posts, 'user': user})
 
