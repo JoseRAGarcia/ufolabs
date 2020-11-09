@@ -47,8 +47,6 @@ body{
     width: 40%;
 }
 
-
-
 #ham{
     display: none;
 }
@@ -66,13 +64,13 @@ body{
     height: 32px;
     cursor: pointer;
     z-index: 1;
-    margin: 2%;
+    margin: 5px;
 }
 
 .blog-header {
   line-height: 1;
   border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 0.5%;
+  margin: 0;
 }
 
 .blog-header-logo {
@@ -92,7 +90,7 @@ body{
 }
 
 .my-containerBanner{
-    width: 100%;
+    width: auto;
     height: 500px;
     background-image: url('../img/ufolabsbr.jpg');
     background-repeat: no-repeat;
