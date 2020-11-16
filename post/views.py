@@ -2,6 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post
 from .forms import CreatePost
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from django.views.generic.edit import UpdateView
 
 # Create your views here.
@@ -14,7 +16,12 @@ def home(request):
 @login_required
 def post(request, post_id):
     post = Post.objects.get(pk=post_id)
-    return render(request, 'post.html', {'post': post})
+    liked = False
+
+    if post.likes.filter(id=request.user.id).exists():
+        liked = True
+
+    return render(request, 'post.html', {'post': post, 'liked': liked})
 
 @login_required
 def new_post(request):
@@ -29,13 +36,15 @@ def new_post(request):
         form = CreatePost()
     return render(request, 'postCreation.html', {'form':form})
 
-# class MyUpdateView(UpdateView):
-#
-#     model = Post
-#     form_class = CreatePost
-#
-#     # Sending user object to the form, to verify which fields to display/remove (depending on group)
-#     def get_form_kwargs(self):
-#         kwargs = super(MyUpdateView, self).get_form_kwargs()
-#         kwargs.update({'user': self.request.user})
-#         return kwargs
+def like_post(request, pk):
+    post = get_object_or_404(Post, id=request.POST.get('post_id'))
+    liked = False
+
+    if post.likes.filter(id=request.user.id).exists():
+        post.likes.remove(request.user)
+        liked = False
+    else:
+        post.likes.add(request.user)
+        liked = True
+
+    return HttpResponseRedirect(reverse('post', args=[str(pk)]))

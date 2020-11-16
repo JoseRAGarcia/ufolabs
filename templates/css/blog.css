@@ -209,6 +209,13 @@ body{
     color: black;
 }
 
+/*
+.post-container-profile h3{
+    position: fixed;
+    margin-bottom: 10px;
+}
+*/
+
 .post-form{
     clear: both;
     padding-top: 5%;

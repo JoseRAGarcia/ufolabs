@@ -12,6 +12,17 @@
             {% endif %}
 
               <p>{{ post.content | safe }}</p>
+              <br/>
+              <form action="{% url 'like_post' post.pk %}" method="POST">
+                  {% csrf_token %}
+                  {% if liked %}
+                    <button type="submit", name="post_id", value="{{ post.id }}", class="btn btn-primary btn-sm">Gostei</button>
+                  {% else %}
+                    <button type="submit", name="post_id", value="{{ post.id }}", class="btn btn-secondary btn-sm">Gostou?</button>
+                  {% endif %}
+                  <p>{{ post.total_likes }} {% if post.total_likes != 1 %}pessoas gostaram dessa postagem{% else %}pessoa gostou dessa postagem{% endif %}</p>
+              </form>
+              <br/>
             <div><a href="{% url 'profile' %}">Voltar a tela inicial</a> </div>
           </div><!-- /.blog-post -->
 
