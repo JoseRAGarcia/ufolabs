@@ -23,7 +23,8 @@
                   <p>{{ post.total_likes }} {% if post.total_likes != 1 %}pessoas gostaram dessa postagem{% else %}pessoa gostou dessa postagem{% endif %}</p>
               </form>
               <br/>
-            <div><a href="{% url 'profile' %}">Voltar a tela inicial</a> </div>
+            <div><a href="{% url 'home' %}">Voltar para Home</a> </div>
+            <div><a href="{% url 'profile' %}">Voltar para sua tela inicial</a> </div>
           </div><!-- /.blog-post -->
 
 
