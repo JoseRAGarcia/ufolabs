@@ -69,7 +69,13 @@
     {% for friend in user.my_user.get_friends %}
         <figure id="friends-photo">
             <a href="{% url 'person' friend.id %}">
-                <img src="{{ friend.my_user.photo.url }}" width="70" height="70" legend="oi">
+                <img
+                   {% if friend.my_user.photo.url != blank %}
+                      src="{{ friend.my_user.photo.url }}"
+                   {% else %}
+                      src="/static/img/profile.png"
+                    {% endif %}
+                width="70" height="70">
                 <figcaption>{{ friend.first_name }}</figcaption>
             </a>
         </figure>

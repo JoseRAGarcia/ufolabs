@@ -35,7 +35,14 @@
           {% for fr in frequest %}
             <nav class="menu-perfil abducao">
                 <ul>
-                    <li><a href="{% url 'accept_friend' fr.id %}">Aceitar {{ fr.from_user.first_name }}? <img src="{{ fr.from_user.my_user.photo.url }}" width="70" height="70"></a></li>
+                    <li><a href="{% url 'accept_friend' fr.id %}">Aceitar {{ fr.from_user.first_name }}?
+                        <img
+                          {% if fr.from_user.my_user.photo.url != blank %}
+                            src="{{ fr.from_user.my_user.photo.url }}"
+                          {% else %}
+                            src="/static/img/profile.png"
+                          {% endif %}
+                        width="70" height="70"></a></li>
                 </ul>
             </nav>
           {% endfor %}
