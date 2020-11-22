@@ -1,11 +1,6 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<!--        <div class="blog-post">-->
-<!--            <h2 class="blog-post-title">-->
-<!--                Olá, {{ user.first_name }} {{ user.last_name }}!-->
-<!--            </h2>-->
-<!--        </div>-->
 <section class="menu-perfil">
     <div>
         <figure id="profile-image" class="profile-image">
@@ -25,10 +20,14 @@
             <ul>
                 <li><a href="{% url 'update_user' user.id %}">Alterar dados cadastrais</a></li>
                 <li><a href="{% url 'new_post' %}">Nova postagem</a></li>
+                {% if frequest.count != 0 %}
+                <li class="abducao-info"><a href="{% url 'requests' user.id %}">({{frequest.count}}) Tentativa(s) de abdução</a></li>
+                {% endif %}
             </ul>
         </nav>
     </div>
 </section>
+
 <section class="post-container-profile">
           <h3 class="pb-3 mb-4 font-italic border-bottom">
             De algum lugar no Espaço
@@ -50,4 +49,17 @@
             <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
           </nav>
     </section>
+{% endblock %}
+
+{% block top_right %}
+    <h4 class="font-italic">Abduzidos</h4>
+    {% for friend in user.my_user.get_friends %}
+        <figure id="friends-photo">
+            <a href="{% url 'person' friend.id %}">
+                <img src="{{ friend.my_user.photo.url }}" width="70" height="70">
+                <figcaption>{{ friend.first_name }}</figcaption>
+            </a>
+        </figure>
+    {% endfor %}
+    <p>Total de Abduzidos: {{ user.my_user.get_friends_number }}</p>
 {% endblock %}

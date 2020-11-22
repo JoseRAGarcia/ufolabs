@@ -19,8 +19,13 @@
     <div>
         <nav>
             <ul>
-                <li><a href="#">Adicionar aos amigos</a></li>
-                <li><a href="#">Enviar mensagem</a></li>
+
+                {% if user in friend %}
+                    <li><a href="#">Desfazer Abdução</a></li>
+                {% else %}
+                    <li><a href="{% url 'add_friend' user.id %}">Abduzir Este Ser</a></li>
+                {% endif %}
+                <li><a href="#">Fazer Contato Imediato</a></li>
             </ul>
         </nav>
     </div>
@@ -57,4 +62,17 @@
             <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
           </nav>
     </section>
+{% endblock %}
+
+{% block top_right %}
+    <h4 class="font-italic">Abduzidos</h4>
+    {% for friend in user.my_user.get_friends %}
+        <figure id="friends-photo">
+            <a href="{% url 'person' friend.id %}">
+                <img src="{{ friend.my_user.photo.url }}" width="70" height="70" legend="oi">
+                <figcaption>{{ friend.first_name }}</figcaption>
+            </a>
+        </figure>
+    {% endfor %}
+    <p>Total de Abduzidos: {{ user.my_user.get_friends_number }}</p>
 {% endblock %}

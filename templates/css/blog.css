@@ -209,6 +209,32 @@ body{
     color: black;
 }
 
+#friends-photo{
+    display: inline-grid;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    grid-template-columns: auto auto auto;
+    text-align: center;
+}
+
+#friends-photo img{
+    border-radius: 5px;
+}
+
+.abducao-info a{
+    color: red;
+}
+
+.abducao{
+    margin-left: 2%;
+}
+
+.abducao img{
+    border-radius: 100%;
+}
+
+
+
 /*
 .post-container-profile h3{
     position: fixed;
@@ -283,6 +309,10 @@ h1, h2, h3, h4, h5, h6 {
 
     .menu-perfil li{
         padding-left:0;
+    }
+    .abducao{
+        margin: auto;
+        margin-top: 1%;
     }
 
 }

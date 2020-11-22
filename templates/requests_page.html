@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<section class="menu-perfil">
+    <div>
+        <figure id="profile-image" class="profile-image">
+            <img id="profile-photo"
+                 {% if user.my_user.photo.url != blank %}
+                    style="background-image: url('{{ user.my_user.photo.url }}')">
+                {% else %}
+                    src="/static/img/profile.png">
+                {% endif %}
+            <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+        </figure>
+
+    </div>
+    {% if request.user.id != user.id %}
+    <div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'add_friend' user.id %}">Abduzir Este Ser</a></li>
+                <li><a href="#">Fazer Contato Imediato</a></li>
+            </ul>
+        </nav>
+    </div>
+    {% endif %}
+</section>
+    <section class="post-container-profile bio">
+          <h3 class="pb-3 mb-4 font-italic border-bottom">
+            Tentativas de Abdução
+          </h3>
+
+
+          {% for fr in frequest %}
+            <nav class="menu-perfil abducao">
+                <ul>
+                    <li><a href="{% url 'accept_friend' fr.id %}">Aceitar {{ fr.from_user.first_name }}? <img src="{{ fr.from_user.my_user.photo.url }}" width="70" height="70"></a></li>
+                </ul>
+            </nav>
+          {% endfor %}
+
+
+    </section>
+{% endblock %}
