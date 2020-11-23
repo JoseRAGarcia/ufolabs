@@ -12,6 +12,7 @@ def register(request):
 
         if form.is_valid():
             form.save()
+            messages.info(request, "Ser registrado com sucesso!")
             return redirect('login')
     else:
         form = CreateUser()
@@ -51,7 +52,7 @@ def add_friend(request, id):
     from_user = request.user
     to_user = My_User.objects.get(id=id)
     frequest = Relationship.objects.get_or_create(from_user=from_user, to_user=to_user)
-    messages.info(request, "Tentativa de abdução realizada com sucesso!")
+    messages.info(request, "Tentativa de abdução realizada com sucesso! Aguarde até que o outro ser aceite ou não sua abdução!")
     return redirect('profile')
 
 def accept_friend(request, id):
