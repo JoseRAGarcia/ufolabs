@@ -10,9 +10,13 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.PROTECT)
     created_at = models.DateField(auto_now_add=True)
     likes = models.ManyToManyField(User, related_name='blog_posts')
+    online = models.BooleanField(default=False)
 
     def total_likes(self):
         return self.likes.count()
+
+    def get_online(self):
+        return self.online.get()
 
     def __str__(self):
         return self.title

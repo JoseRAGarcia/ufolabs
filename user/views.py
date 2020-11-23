@@ -24,7 +24,8 @@ def profile(request):
     user = request.user
     frequest = Relationship.objects.filter(to_user=request.user)
     posts = Post.objects.all().order_by('-created_at')
-    return render(request, 'profile.html', {'user':user, 'posts': posts, 'frequest': frequest})
+    posts_to_allow = Post.objects.filter(online=False)
+    return render(request, 'profile.html', {'user':user, 'posts': posts, 'frequest': frequest, 'posts_to_allow':posts_to_allow})
 
 @login_required
 def person(request, id):

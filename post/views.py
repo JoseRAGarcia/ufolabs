@@ -25,7 +25,6 @@ def post(request, post_id):
     return render(request, 'post.html', {'post': post, 'liked': liked})
 
 @login_required
-@user_passes_test(lambda u: u.is_superuser)
 def new_post(request):
     if request.method == 'POST':
         item = Post(author=request.user)
@@ -33,7 +32,7 @@ def new_post(request):
 
         if form.is_valid():
             form.save()
-            messages.info(request, "Mensagem enviada ao Espaço com sucesso! (A imagem da postagem pode levar até 24hrs para ser aprovada)")
+            messages.info(request, "Mensagem enviada ao Espaço com sucesso! (A sua postagem pode levar até 24hrs para ser aprovada)")
             return redirect('profile')
     else:
         form = CreatePost()
@@ -52,3 +51,19 @@ def like_post(request, pk):
         liked = True
 
     return HttpResponseRedirect(reverse('post', args=[str(pk)]))
+
+@login_required
+@user_passes_test(lambda u: u.is_superuser)
+def allow_post(request, pk):
+    post = get_object_or_404(Post, id=request.POST.get('allow_post_id'))
+    post.online = True
+    post.save()
+    messages.info(request, "Postagem aprovada com sucesso. Agora ela é pública")
+    return redirect('profile')
+
+@login_required
+@user_passes_test(lambda u: u.is_superuser)
+def post_list(request):
+    posts = Post.objects.all().order_by('-created_at')
+    posts_to_allow = Post.objects.filter(online=False)
+    return render(request, 'post_list.html', {'posts': posts})

@@ -48,14 +48,16 @@
           </h3>
 
           {% for post in user_posts %}
-          <div class="blog-post">
-            <h2 class="blog-post-title">
-              {{ post.title }}
-            </h2>
-            <p class="blog-post-meta">{{ post.created_at | date:'d, M Y' }} by <a href="#">{{ post.author }}</a></p>
+            {% if post.online %}
+              <div class="blog-post">
+                <h2 class="blog-post-title">
+                  {{ post.title }}
+                </h2>
+                <p class="blog-post-meta">{{ post.created_at | date:'d, M Y' }} by <a href="#">{{ post.author }}</a></p>
 
-              <p>{{ post.content | safe | slice:'0:500' }}... <a href="/posts/{{ post.pk }}">Ler mais</a></p>
-          </div><!-- /.blog-post -->
+                  <p>{{ post.content | safe | slice:'0:500' }}... <a href="/posts/{{ post.pk }}">Ler mais</a></p>
+              </div><!-- /.blog-post -->
+            {% endif %}
           {% endfor %}
 
           <nav class="blog-pagination">

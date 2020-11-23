@@ -15,10 +15,20 @@
               <br/>
               <form action="{% url 'like_post' post.pk %}" method="POST">
                   {% csrf_token %}
-                  {% if liked %}
-                    <button type="submit", name="post_id", value="{{ post.id }}", class="btn btn-primary btn-sm">Gostei</button>
-                  {% else %}
-                    <button type="submit", name="post_id", value="{{ post.id }}", class="btn btn-secondary btn-sm">Gostou?</button>
+                    {% if post.online %}
+                      {% if liked %}
+                        <button type="submit", name="post_id", value="{{ post.id }}", class="btn btn-primary btn-sm">Gostei</button>
+                      {% else %}
+                        <button type="submit", name="post_id", value="{{ post.id }}", class="btn btn-secondary btn-sm">Gostou?</button>
+                      {% endif %}
+                    {% endif %}
+              </form>
+              <form action="{% url 'allow_post' post.pk %}" method="POST">
+                  {% csrf_token %}
+                  {% if request.user.is_superuser %}
+                    {% if post.online == False %}
+                    <button type="submit", name="allow_post_id", value="{{ post.id }}", class="btn btn-secondary btn-sm">Permitir Postagem</button>
+                    {% endif %}
                   {% endif %}
                   <p>{{ post.total_likes }} {% if post.total_likes != 1 %}pessoas gostaram dessa postagem{% else %}pessoa gostou dessa postagem{% endif %}</p>
               </form>
