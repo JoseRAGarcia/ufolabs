@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .models import My_User, Relationship
 from post.models import Post
 from .forms import CreateUser, UpdateUser
+from django.contrib import messages
 # Create your views here.
 
 def register(request):
@@ -41,6 +42,7 @@ def update_user(request, id):
 
     if form.is_valid():
         form.save()
+        messages.info(request, "Dados deste ser alterados com sucesso! (Sua foto de perfil pode levar até 24hrs para ser aprovada)")
         return redirect('profile')
 
     return render(request, 'userUpdate.html', {'form': form})
@@ -49,6 +51,7 @@ def add_friend(request, id):
     from_user = request.user
     to_user = My_User.objects.get(id=id)
     frequest = Relationship.objects.get_or_create(from_user=from_user, to_user=to_user)
+    messages.info(request, "Tentativa de abdução realizada com sucesso!")
     return redirect('profile')
 
 def accept_friend(request, id):
@@ -58,6 +61,7 @@ def accept_friend(request, id):
     user1.friends.add(user2.id)
     user2.friends.add(user1.id)
     frequest.delete()
+    messages.info(request, f"{user2.first_name} conseguiu te abduzir com sucesso!")
     return redirect('profile')
 
 def requests_page(request, id):

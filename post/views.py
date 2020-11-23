@@ -4,6 +4,7 @@ from .models import Post
 from .forms import CreatePost
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.contrib import messages
 from django.views.generic.edit import UpdateView
 
 # Create your views here.
@@ -31,9 +32,11 @@ def new_post(request):
 
         if form.is_valid():
             form.save()
+            messages.info(request, "Mensagem enviada ao Espaço com sucesso! (A imagem da postagem pode levar até 24hrs para ser aprovada)")
             return redirect('profile')
     else:
         form = CreatePost()
+
     return render(request, 'postCreation.html', {'form':form})
 
 def like_post(request, pk):

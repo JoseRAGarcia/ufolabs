@@ -68,4 +68,9 @@
         </figure>
     {% endfor %}
     <p>Total de Abduzidos: {{ user.my_user.get_friends_number }}</p>
+    {% if messages %}
+        {% for message in messages %}
+         {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+        {% endfor %}
+    {% endif %}
 {% endblock %}
