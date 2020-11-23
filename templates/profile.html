@@ -19,9 +19,11 @@
         <nav>
             <ul>
                 <li><a href="{% url 'update_user' user.id %}">Alterar dados cadastrais</a></li>
-                <li><a href="{% url 'new_post' %}">Nova postagem</a></li>
+                {% if request.user.is_superuser %}
+                    <li><a href="{% url 'new_post' %}">Nova postagem</a></li>
+                {% endif %}
                 {% if frequest.count != 0 %}
-                <li class="abducao-info"><a href="{% url 'requests' user.id %}">({{frequest.count}}) Tentativa(s) de abdução</a></li>
+                    <li class="abducao-info"><a href="{% url 'requests' user.id %}">({{frequest.count}}) Tentativa(s) de abdução</a></li>
                 {% endif %}
             </ul>
         </nav>

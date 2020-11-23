@@ -1,4 +1,4 @@
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post
 from .forms import CreatePost
@@ -25,6 +25,7 @@ def post(request, post_id):
     return render(request, 'post.html', {'post': post, 'liked': liked})
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def new_post(request):
     if request.method == 'POST':
         item = Post(author=request.user)
