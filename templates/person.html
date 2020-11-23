@@ -40,10 +40,11 @@
             <a href="{% url 'update_user' request.user.id %}">Editar Bio</a>
         {% endif %}
     </section>
+
+    {% if user_posts.exists %}
     <section class="post-container-profile">
           <h3 class="pb-3 mb-4 font-italic border-bottom">
             Minhas Postagens
-          </h3>
           </h3>
 
           {% for post in user_posts %}
@@ -62,6 +63,7 @@
             <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
           </nav>
     </section>
+    {% endif %}
 {% endblock %}
 
 {% block top_right %}
