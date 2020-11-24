@@ -233,7 +233,33 @@ body{
     border-radius: 100%;
 }
 
+#like{
+    display: none;
+}
 
+#like-label{
+    display: block;
+    background-image: url('../img/like.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+#unlike{
+    display: none;
+}
+
+#unlike-label{
+    display: block;
+    background-image: url('../img/unlike.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
 
 /*
 .post-container-profile h3{

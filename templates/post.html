@@ -17,9 +17,11 @@
                   {% csrf_token %}
                     {% if post.online %}
                       {% if liked %}
-                        <button type="submit", name="post_id", value="{{ post.id }}", class="btn btn-primary btn-sm">Gostei</button>
+                        <button type="submit", id="like", name="post_id", value="{{ post.id }}", class="btn btn-primary btn-sm">Gostei</button>
+                        <label id="like-label" for="like"></label>
                       {% else %}
-                        <button type="submit", name="post_id", value="{{ post.id }}", class="btn btn-secondary btn-sm">Gostou?</button>
+                        <button type="submit", id="unlike", name="post_id", value="{{ post.id }}", class="btn btn-secondary btn-sm">Gostou?</button>
+                        <label id="unlike-label" for="unlike"></label>
                       {% endif %}
                     {% endif %}
               </form>
