@@ -65,5 +65,4 @@ def allow_post(request, pk):
 @user_passes_test(lambda u: u.is_superuser)
 def post_list(request):
     posts = Post.objects.all().order_by('-created_at')
-    posts_to_allow = Post.objects.filter(online=False)
     return render(request, 'post_list.html', {'posts': posts})

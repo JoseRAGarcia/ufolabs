@@ -15,9 +15,6 @@ class Post(models.Model):
     def total_likes(self):
         return self.likes.count()
 
-    def get_online(self):
-        return self.online.get()
-
     def __str__(self):
         return self.title
 

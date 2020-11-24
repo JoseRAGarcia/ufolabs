@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-
+        {% if post.online or request.user.is_superuser %}
           <div class="blog-post">
             <h2 class="blog-post-title">
               {{ post.title }}
@@ -10,8 +10,8 @@
             {% if post.photo %}
                 <img class="post-image" src="{{ post.photo.url }}">
             {% endif %}
+            <p>{{ post.content | safe }}</p>
 
-              <p>{{ post.content | safe }}</p>
               <br/>
               <form action="{% url 'like_post' post.pk %}" method="POST">
                   {% csrf_token %}
@@ -25,10 +25,8 @@
               </form>
               <form action="{% url 'allow_post' post.pk %}" method="POST">
                   {% csrf_token %}
-                  {% if request.user.is_superuser %}
-                    {% if post.online == False %}
-                    <button type="submit", name="allow_post_id", value="{{ post.id }}", class="btn btn-secondary btn-sm">Permitir Postagem</button>
-                    {% endif %}
+                  {% if request.user.is_superuser and post.online == False %}
+                    <button type="submit", name="allow_post_id", value="{{ post.id }}", class="btn btn-secondary btn-sm">Aprovar Postagem</button>
                   {% endif %}
                   <p>{{ post.total_likes }} {% if post.total_likes != 1 %}pessoas gostaram dessa postagem{% else %}pessoa gostou dessa postagem{% endif %}</p>
               </form>
@@ -36,6 +34,6 @@
             <div><a href="{% url 'home' %}">Voltar para Home</a> </div>
             <div><a href="{% url 'profile' %}">Voltar para sua tela inicial</a> </div>
           </div><!-- /.blog-post -->
-
+        {% endif %}
 
 {% endblock %}
