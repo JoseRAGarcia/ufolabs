@@ -34,8 +34,9 @@ def person(request, id):
     user = get_object_or_404(My_User, pk=id)
     users = My_User.objects.all()
     friend = My_User.objects.filter(friends=request.user)
+    frequest = Relationship.objects.filter(from_user=request.user, to_user=user)
 
-    return render(request, 'person.html', {'user': user, 'posts': posts, 'user_posts': user_posts, 'users': users, 'friend': friend})
+    return render(request, 'person.html', {'user': user, 'posts': posts, 'user_posts': user_posts, 'users': users, 'friend': friend, 'frequest': frequest})
 
 @login_required
 def update_user(request, id):

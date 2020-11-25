@@ -30,7 +30,7 @@
                   {% if request.user.is_superuser and post.online == False %}
                     <button type="submit", name="allow_post_id", value="{{ post.id }}", class="btn btn-secondary btn-sm">Aprovar Postagem</button>
                   {% endif %}
-                  <p>{{ post.total_likes }} {% if post.total_likes != 1 %}pessoas gostaram dessa postagem{% else %}pessoa gostou dessa postagem{% endif %}</p>
+                  <p>{{ post.total_likes }} {% if post.total_likes != 1 %}seres gostaram dessa postagem{% else %}ser gostou dessa postagem{% endif %}</p>
               </form>
               <br/>
             <div><a href="{% url 'home' %}">Voltar para Home</a> </div>
