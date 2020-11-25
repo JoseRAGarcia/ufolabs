@@ -70,3 +70,17 @@ def accept_friend(request, id):
 def requests_page(request, id):
     frequest = Relationship.objects.filter(to_user=request.user)
     return render(request, 'requests_page.html', {'frequest': frequest})
+
+def delete_request(request, id):
+    user = get_object_or_404(My_User, pk=id)
+    frequest = Relationship.objects.filter(from_user=request.user, to_user=user)
+
+    if frequest:
+        frequest.delete()
+        messages.info(request, "Solicitação de abdução cancelada com sucesso")
+    else:
+        request.user.my_user.friends.remove(user.id)
+        user.friends.remove(request.user)
+        messages.info(request, "Abdução desfeita com sucesso")
+
+    return redirect('profile')

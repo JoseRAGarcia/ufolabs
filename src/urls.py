@@ -38,5 +38,6 @@ urlpatterns = [
     path('accept_friend/<int:id>/', user_views.accept_friend, name='accept_friend'),
     path('requests/<int:id>/', user_views.requests_page, name='requests'),
     path('allow_post/<int:pk>/', post_views.allow_post, name='allow_post'),
-    path('post_list/', post_views.post_list, name='post_list')
+    path('post_list/', post_views.post_list, name='post_list'),
+    path('delete_request/<int:id>', user_views.delete_request, name='delete_request')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
