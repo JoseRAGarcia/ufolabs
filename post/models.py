@@ -18,4 +18,9 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+class PostComment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.PROTECT)
+    content = models.TextField()
+    created_at = models.DateField(auto_now_add=True)
 
