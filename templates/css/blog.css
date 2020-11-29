@@ -250,9 +250,9 @@ body{
     cursor: pointer;
 }
 
-#unlike{
+/* #unlike{
     display: none;
-}
+} */
 
 #unlike-label{
     display: block;

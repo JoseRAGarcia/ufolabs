@@ -14,24 +14,16 @@
             <p>{{ post.content | safe }}</p>
 
               <br/>
-              <form action="{% url 'like_post' post.pk %}" method="POST">
-                  {% csrf_token %}
-                    {% if post.online %}
-                      {% if liked %}
-                        <button type="submit", id="like", name="post_id", value="{{ post.id }}", class="btn btn-primary btn-sm">Gostei</button>
-                        <label id="like-label" for="like"></label>
-                      {% else %}
-                        <button type="submit", id="unlike", name="post_id", value="{{ post.id }}", class="btn btn-secondary btn-sm">Gostou?</button>
-                        <label id="unlike-label" for="unlike"></label>
-                      {% endif %}
-                    {% endif %}
-              </form>
+          </div>
+          <div id="like-section">
+            {% include 'like.html' %}
+          </div>
+              
               <form action="{% url 'allow_post' post.pk %}" method="POST">
                   {% csrf_token %}
                   {% if request.user.is_superuser and post.online == False %}
                     <button type="submit", name="allow_post_id", value="{{ post.id }}", class="btn btn-secondary btn-sm">Aprovar Postagem</button>
                   {% endif %}
-                  <p>{{ post.total_likes }} {% if post.total_likes != 1 %}seres gostaram dessa postagem{% else %}ser gostou dessa postagem{% endif %}</p>
               </form>
               <br/>
               <div><a href="{% url 'home' %}">Voltar para Home</a> </div>

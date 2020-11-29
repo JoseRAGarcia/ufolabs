@@ -1,0 +1,13 @@
+<form action="{% url 'like_post' %}" method="POST">
+    {% csrf_token %}
+        {% if post.online %}
+           {% if liked %}
+              <button type="submit", id="like", name="post_id", value="{{ post.id }}", class="btn btn-primary btn-sm">Gostei</button>
+              <label id="like-label" for="like"></label>
+           {% else %}
+              <button type="submit", id="like", name="post_id", value="{{ post.id }}", class="btn btn-secondary btn-sm">Gostou?</button>
+              <label id="unlike-label" for="like"></label>
+           {% endif %}
+        {% endif %}
+    <p>{{ post.total_likes }} {% if post.total_likes != 1 %}seres gostaram dessa postagem{% else %}ser gostou dessa postagem{% endif %}</p>
+</form>

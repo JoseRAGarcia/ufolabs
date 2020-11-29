@@ -2,10 +2,10 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post, PostComment
 from .forms import CreatePost, CommentPost
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 from django.contrib import messages
-from django.views.generic.edit import UpdateView
+from django.template.loader import render_to_string
 
 # Create your views here.
 
@@ -41,8 +41,9 @@ def new_post(request):
 
     return render(request, 'postCreation.html', {'form':form})
 
-def like_post(request, pk):
-    post = get_object_or_404(Post, id=request.POST.get('post_id'))
+def like_post(request):
+    #post = get_object_or_404(Post, id=request.POST.get('post_id'))
+    post = get_object_or_404(Post, id=request.POST.get('id'))
     liked = False
 
     if post.likes.filter(id=request.user.id).exists():
@@ -52,7 +53,17 @@ def like_post(request, pk):
         post.likes.add(request.user)
         liked = True
 
-    return HttpResponseRedirect(reverse('post', args=[str(pk)]))
+    context ={
+        'post': post,
+        'liked': liked,
+        'total_likes': post.total_likes()
+    }
+
+    if request.is_ajax():
+        html = render_to_string('like.html', context, request=request)
+        return JsonResponse({'form': html})
+
+    #return HttpResponseRedirect(reverse('post', args=[str(pk)]))
 
 @login_required
 @user_passes_test(lambda u: u.is_superuser)
